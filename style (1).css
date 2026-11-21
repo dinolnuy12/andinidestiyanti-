@@ -1,0 +1,590 @@
+
+/* ==========================
+   RESET DAN DASAR
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #dce6f7;
+    color: #56BEC9;
+    line-height: 1.6;
+}
+
+
+/* ==========================
+   LAYOUT UTAMA
+========================== */
+
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+
+    grid-template-areas:
+        "header header header"
+        "sidebar main promo"
+        "footer footer footer";
+
+    gap: 16px;
+    max-width: 1440px;
+    margin: auto;
+    padding: 16px;
+    min-height: 100vh;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.header {
+    grid-area: header;
+    background: #71BB3A;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.logo {
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #facc15;
+}
+
+.hamburger-btn {
+    display: none;
+    background: #A1DFCC;
+    color: #69A940FC;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+
+/* ==========================
+   SIDEBAR KIRI
+========================== */
+
+.sidebar-kiri {
+    grid-area: sidebar;
+    background: #5EA83D;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.sidebar-kiri ul {
+    list-style: none;
+    margin-top: 12px;
+}
+
+.sidebar-kiri li {
+    padding: 8px 0;
+    border-bottom: 1px solid #FFFFFF30;
+}
+
+
+/* ==========================
+   KONTEN UTAMA
+========================== */
+
+.konten-utama {
+    grid-area: main;
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+}
+
+.konten-utama h2 {
+    margin-bottom: 16px;
+    color: #37A794;
+}
+
+
+/* ==========================
+   KARTU PROYEK
+========================== */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.card {
+    background: #eef2ff;
+    border: 1px solid #cbd5e1;
+    padding: 14px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px #00000015;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 7px;
+    margin-bottom: 12px;
+}
+
+.card h4 {
+    color: #3CA993;
+    margin-bottom: 8px;
+}
+
+
+/* ==========================
+   WIDGET PROMO
+========================== */
+
+.widget-promo {
+    grid-area: promo;
+    background: #7BB83E;
+    color: #56B440;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.promo-box {
+    background: #ffffff55;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer {
+    grid-area: footer;
+    background: #74AB4E;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+
+/* ==========================
+   CHATBOT
+========================== */
+
+.chat-toggle {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    background: #23CFA0;
+    color: white;
+    border: 3px solid #b8a1df;
+
+    padding: 15px 25px;
+    border-radius: 40px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+    z-index: 1000;
+
+    box-shadow: 0 4px 12px #00000030;
+}
+
+.chat-toggle:hover {
+    background: #44A58D;
+}
+
+
+/* JENDELA CHAT */
+
+.chat-window {
+    position: fixed;
+    right: 25px;
+    bottom: 95px;
+
+    width: 390px;
+    height: 570px;
+    max-height: 75vh;
+
+    background: white;
+    border: 2px solid #7CDABFF5;
+    border-radius: 22px;
+
+    display: none;
+    flex-direction: column;
+
+    overflow: hidden;
+    z-index: 999;
+
+    box-shadow: 0 8px 25px #00000025;
+}
+
+.chat-window.active {
+    display: flex;
+}
+
+
+/* HEADER CHAT */
+
+.chat-header {
+    background: #40BE9C;
+    color: white;
+
+    padding: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.close-chat {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* ISI CHAT */
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f2f6fa;
+}
+
+
+/* PESAN CHAT */
+
+.message {
+    padding: 12px 14px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+
+    max-width: 90%;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+.bot-message {
+    background: #eee9fa;
+    border: 1px solid #d4c7e9;
+    color: #51C4AA;
+    border-bottom-left-radius: 3px;
+}
+
+.user-message {
+    background: #d8e4f5;
+    color: #51C4AA;
+    margin-left: auto;
+    border-bottom-right-radius: 3px;
+}
+
+
+/* PERTANYAAN OTOMATIS */
+
+.quick-questions {
+    background: white;
+    padding: 12px;
+    border-top: 1px solid #ddd;
+}
+
+.quick-questions button {
+    display: block;
+    width: 100%;
+
+    text-align: left;
+
+    background: #dce6f5;
+    border: 1px solid #c0cede;
+
+    padding: 10px;
+    margin: 7px 0;
+
+    border-radius: 10px;
+
+    color: #51C4AF;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.quick-questions button:hover {
+    background: #c5d6ed;
+}
+
+
+/* INPUT CHAT */
+
+.chat-input-area {
+    display: flex;
+    border-top: 1px solid #ddd;
+    background: white;
+}
+
+.chat-input-area input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 15px;
+
+    border: none;
+    outline: none;
+
+    font-size: 15px;
+}
+
+.chat-input-area button {
+    background: #51C4AF;
+    color: white;
+
+    border: none;
+    padding: 0 20px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.chat-input-area button:hover {
+    background: #51C4A5;
+}
+
+
+/* ==========================
+   BREAKPOINT TABLET
+========================== */
+
+@media screen and (min-width: 601px)
+and (max-width: 1023px) {
+
+    .page-wrapper {
+        grid-template-columns: 190px 1fr;
+
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
+
+    .widget-promo {
+        display: none;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==========================
+   TANTANGAN 2:
+   BREAKPOINT PORTRAIT
+========================== */
+
+@media screen and (max-width: 600px)
+and (orientation: portrait) {
+
+    .page-wrapper {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+
+        padding: 10px;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+
+    .logo-area img {
+        width: 43px;
+        height: 43px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .sidebar-kiri,
+    .widget-promo {
+        display: none;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .konten-utama {
+        padding: 15px;
+    }
+
+    /* CHAT SMARTPHONE */
+
+    .chat-window {
+        width: calc(100% - 20px);
+        height: 75vh;
+        max-height: 650px;
+
+        right: 10px;
+        bottom: 85px;
+    }
+
+    .chat-toggle {
+        right: 15px;
+        bottom: 15px;
+
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .chat-header {
+        font-size: 17px;
+    }
+
+}
+
+
+/* ==========================
+   HP LANDSCAPE
+========================== */
+
+@media screen and (max-width: 850px)
+and (orientation: landscape) {
+
+    .header {
+        background: #64C451;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chat-window {
+        height: 80vh;
+    }
+
+}
+
+
+/* ==========================
+   TANTANGAN 3:
+   BREAKPOINT LAPTOP BESAR
+========================== */
+
+@media screen and (min-width: 1200px) {
+
+    .page-wrapper {
+        max-width: 1600px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .konten-utama {
+        padding: 28px;
+    }
+
+}
+
+
+/* ==========================
+   SMART TV
+========================== */
+
+@media screen and (min-width: 1921px) {
+
+    html {
+        font-size: 20px;
+    }
+
+    .page-wrapper {
+        max-width: 2000px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
